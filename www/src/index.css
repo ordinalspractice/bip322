@@ -1,0 +1,299 @@
+:root {
+  --width-target: calc(100vw / 6);
+  --height-target: calc(100vh / 3);
+  --size: min(var(--width-target), var(--height-target));
+  --margin-horizontal: calc((100vw - var(--size) * 5) / 8);
+  --font-small: calc(var(--size) * 0.15);
+  --font-large: calc(var(--size) * 0.7);
+  --common-spacing: 1rem;
+  --white-glow: 0 0 5px #fff;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base styles */
+html {
+  background-color: black;
+  color: white;
+  overflow: hidden;
+  text-align: center;
+  font-family: monospace;
+}
+
+body {
+  margin-inline: var(--margin-horizontal);
+}
+
+/* Layout */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  padding: var(--common-spacing);
+}
+
+.action-section {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: auto;
+}
+
+/* Header */
+.hero {
+  position: relative;
+}
+
+.hero h1 {
+  font-size: calc(var(--size) * 0.3);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+  position: absolute;
+  top: var(--common-spacing);
+  inset-inline: 0;
+  cursor: default;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+h2 {
+  font-size: var(--font-small);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+  cursor: default;
+  font-weight: normal;
+  cursor: pointer;
+  margin-bottom: var(--common-spacing);
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Buttons container */
+.button-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+/* Common button styles */
+.sign-button,
+.verify-button,
+.button-separator {
+  font-size: var(--font-large);
+}
+
+.sign-button,
+.verify-button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: text-shadow 0.2s ease-in-out;
+}
+
+.sign-button:hover,
+.verify-button:hover {
+  text-shadow: var(--white-glow);
+  text-decoration: underline;
+}
+
+.button-separator {
+  margin: 0 0.5rem;
+  cursor: default;
+}
+
+/* Form styles */
+.form-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--common-spacing);
+}
+
+/* Common input/button styles */
+.form-wrapper input,
+.form-wrapper button,
+.verification-box,
+.reset-button {
+  padding: 0.5rem;
+  font-size: var(--font-small);
+  width: 100%;
+  font-family: monospace;
+  border-radius: 8px;
+}
+
+.form-wrapper input {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+.form-wrapper button {
+  background-color: white;
+  border: 2px solid white;
+  color: black;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.form-wrapper button:hover {
+  box-shadow: 0 0 15px #fff;
+}
+
+/* Verification box */
+.verification-box {
+  border: 2px solid white;
+  transition: all 0.2s ease-in-out;
+  cursor: default;
+}
+
+.verification-true {
+  background-color: white;
+  color: black;
+  box-shadow: 0 0 15px #fff;
+}
+
+.verification-false {
+  background-color: transparent;
+  color: white;
+}
+
+/* Reset button */
+.reset-button {
+  position: absolute;
+  inset-inline: 0;
+  top: calc(100% + var(--common-spacing));
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.reset-button:hover {
+  text-decoration: underline;
+}
+
+/* Navigation */
+.navbar {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: var(--font-small);
+  position: fixed;
+  inset-inline: 0;
+  bottom: var(--common-spacing);
+  padding: var(--common-spacing);
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  text-shadow: var(--white-glow);
+  text-decoration: underline;
+}
+
+.buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--common-spacing);
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Wallet button container */
+.wallet-button-container {
+  width: 100%;
+}
+
+/* Wallet button base styles */
+.wallet-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  font-family: monospace;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.wallet-button:hover {
+  background-color: white;
+  color: black;
+  box-shadow: 0 0 15px #fff;
+}
+
+/* Wallet button content */
+.wallet-button-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Wallet status indicator */
+.wallet-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #888;
+  font-size: 0.85em;
+}
+
+.wallet-button:hover .wallet-status {
+  color: black;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #3b82f6;
+  border-radius: 50%;
+}
+
+.wallet-button-installed {
+  background-color: #fff;
+}
+
+.install-text {
+  color: #3b82f6;
+  font-size: 0.85em;
+}
+
+.wallet-button:hover .install-text {
+  color: black;
+}
+
+/* Connected address input */
+.connected-address {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 0.75rem 1rem;
+  font-size: var(--font-small);
+  width: 100%;
+  font-family: monospace;
+  border-radius: 8px;
+  margin-bottom: var(--common-spacing);
+  cursor: default;
+}
